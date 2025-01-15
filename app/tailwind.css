@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-white: 0, 0%, 100%;
+
+    --color-app-bg: 204, 20%, 95%;
+    --color-app-bg-dark: 204, 20%, 93%;
+
+    --color-grey-10: 200, 16%, 5%;
+    --color-grey-10: 200, 16%, 10%;
+    --color-grey-20: 200, 16%, 20%;
+    --color-grey-30: 200, 16%, 30%;
+    --color-grey-40: 200, 16%, 40%;
+    --color-grey-50: 200, 16%, 50%;
+    --color-grey-60: 200, 16%, 60%;
+    --color-grey-70: 200, 16%, 70%;
+    --color-grey-80: 200, 16%, 80%;
+    --color-grey-90: 200, 16%, 90%;
+    --color-grey-93: 200, 16%, 93%;
+    --color-grey-92: 200, 16%, 92%;
+    --color-grey-95: 200, 16%, 95%;
+    --color-grey-96: 200, 16%, 96%;
+    --color-grey-97: 200, 16%, 97%;
+    --color-grey-98: 200, 16%, 98%;
+    --color-grey-99: 200, 16%, 99%;
+
+    --color-purple-10: 264, 80%, 10%;
+    --color-purple-20: 264, 80%, 20%;
+    --color-purple-30: 264, 80%, 30%;
+    --color-purple-40: 264, 80%, 40%;
+    --color-purple-50: 264, 80%, 50%;
+    --color-purple-60: 264, 80%, 60%;
+    --color-purple-70: 264, 80%, 70%;
+    --color-purple-80: 264, 80%, 80%;
+    --color-purple-90: 264, 80%, 90%;
+    --color-purple-95: 264, 80%, 95%;
+    --color-purple-97: 263, 84%, 97%;
+    --color-purple-98: 264, 77%, 98%;
+    --color-purple-99: 264, 77%, 99%;
+
+    --color-red-10: 357, 83%, 10%;
+    --color-red-20: 357, 83%, 20%;
+    --color-red-30: 357, 83%, 30%;
+    --color-red-40: 357, 83%, 40%;
+    --color-red-50: 357, 83%, 50%;
+    --color-red-60: 357, 83%, 60%;
+    --color-red-70: 357, 83%, 70%;
+    --color-red-80: 357, 83%, 80%;
+    --color-red-90: 357, 83%, 90%;
+    --color-red-95: 357, 83%, 95%;
+    --color-red-97: 357, 83%, 97%;
+    --color-red-98: 357, 93%, 98%;
+    --color-red-99: 357, 93%, 99%;
+
+    --color-green-10: 163, 52%, 10%;
+    --color-green-20: 163, 52%, 20%;
+    --color-green-30: 163, 52%, 30%;
+    --color-green-40: 163, 52%, 40%;
+    --color-green-50: 163, 52%, 50%;
+    --color-green-60: 163, 52%, 60%;
+    --color-green-70: 163, 52%, 70%;
+    --color-green-80: 163, 52%, 80%;
+    --color-green-90: 163, 52%, 90%;
+    --color-green-95: 163, 52%, 95%;
+    --color-green-97: 163, 52%, 97%;
+    --color-green-98: 163, 52%, 98%;
+    --color-green-99: 163, 52%, 99%;
+
+    --color-blue-10: 210, 100%, 10%;
+    --color-blue-20: 210, 100%, 20%;
+    --color-blue-30: 210, 100%, 30%;
+    --color-blue-40: 210, 100%, 40%;
+    --color-blue-50: 210, 100%, 50%;
+    --color-blue-60: 210, 100%, 60%;
+    --color-blue-70: 210, 100%, 70%;
+    --color-blue-80: 210, 100%, 80%;
+    --color-blue-90: 210, 100%, 90%;
+    --color-blue-95: 210, 100%, 95%;
+    --color-blue-97: 212, 100%, 97%;
+
+    --color-orange-10: 23, 100%, 10%;
+    --color-orange-20: 23, 100%, 20%;
+    --color-orange-30: 23, 100%, 30%;
+    --color-orange-40: 23, 100%, 40%;
+    --color-orange-50: 23, 100%, 50%;
+    --color-orange-60: 23, 100%, 60%;
+    --color-orange-70: 23, 100%, 70%;
+    --color-orange-80: 23, 100%, 80%;
+    --color-orange-90: 23, 100%, 90%;
+    --color-orange-95: 23, 100%, 95%;
+    --color-orange-97: 33, 100%, 97%;
+
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: hsl(200, 16%, 90%);
+
+    --viewport-padding: 25px;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 999px;
+    border: 1px solid var(--scrollbar-track);
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  svg text {
+    @apply font-body;
+  }
+}
+
+.rdp {
+  --rdp-cell-size: 40px; /* Size of the day cells. */
+  --rdp-caption-font-size: 18px; /* Font size for the caption labels. */
+  --rdp-accent-color: hsl(
+    var(--color-purple-90)
+  ); /* Accent color for the background of selected days. */
+  --rdp-background-color: hsl(
+    var(--color-grey-98)
+  ); /* Background color for the hovered/focused elements. */
+  --rdp-selected-color: hsl(
+    var(--color-white)
+  ); /* Color of selected day text */
+}
+.rdp-day.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  @apply bg-purple-90 text-purple-30 rounded;
+}
+.rdp-day.rdp-button:focus-visible:not([disabled]) {
+  @apply text-purple-30 bg-purple-90 border border-purple-40 rounded;
+}
+.rdp-nav_button.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  @apply rounded;
+}
+.rdp-nav_button.rdp-button:focus-visible:not([disabled]) {
+  @apply bg-transparent border border-purple-40 rounded;
+}
+
+.gen-markdown {
+  @apply p-4 bg-grey-97 rounded;
+}
+
+.gen-markdown h1 {
+  @apply mt-4 mb-2 text-lg text-txt-dark;
+}
+.gen-markdown h2 {
+  @apply mt-4 mb-2 text-base text-txt-dark;
+}
+.gen-markdown h3 {
+  @apply mt-4 mb-2 text-base text-txt-dark;
+}
+.gen-markdown p {
+  @apply my-4 text-base text-grey-20 leading-5;
+}
+.gen-markdown ul {
+  @apply list-disc ml-5 my-4;
+}
+.gen-markdown ol {
+  @apply list-decimal ml-5 my-4;
+}
+.gen-markdown li {
+  @apply my-2 text-base text-grey-20 leading-5;
+}
+
+.gen-markdown code:not([class^="language"]) {
+  @apply px-1 py-0.5 font-mono text-sm bg-grey-95 rounded;
+}
+
+.gen-markdown a {
+  @apply text-base text-link hover:underline;
+}
+
+.gen-markdown blockquote p {
+  @apply m-0;
+}
+.gen-markdown blockquote {
+  @apply my-4 p-4 space-y-4 text-base text-txt-dark bg-grey-95 rounded;
+}
+.gen-markdown > :first-child {
+  @apply !mt-0;
+}
+
+.gen-markdown > :last-child {
+  @apply !mb-0;
+}
+
+.diff {
+  @apply text-sm overflow-scroll;
+}
+
+.diff-line {
+  @apply leading-5;
+}
+
+.diff-code {
+  @apply font-mono whitespace-pre;
+}
+
+.diff-gutter {
+  @apply w-10 text-txt-light text-center;
+}
+
+.diff-code {
+  @apply pl-2;
+}
+
+.diff-decoration {
+  @apply text-blue-30 leading-6 cursor-pointer hover:bg-blue-95;
+}
+
+.diff-code-insert {
+  @apply bg-green-95;
+}
+
+.diff-code-insert > .diff-code-edit {
+  @apply bg-green-80;
+}
+
+.diff-gutter-insert {
+  @apply bg-green-90 text-green-30;
+}
+
+.diff-code-delete {
+  @apply bg-red-95;
+}
+
+.diff-code-delete > .diff-code-edit {
+  @apply bg-red-80;
+}
+
+.diff-gutter-delete {
+  @apply bg-red-90 text-red-30;
+}
+
+@layer components {
+  /* BOX */
+
+  .box {
+    @apply flex items-center min-w-0;
+  }
+
+  .box-vertical {
+    @apply flex flex-col;
+  }
+
+  /* 2xEXTRA SMALL */
+
+  .box-xxs {
+    @apply text-sm min-h-4 px-1 py-0 gap-1;
+  }
+
+  .inline-box-xxs {
+    @apply text-sm min-h-4 gap-1;
+  }
+
+  /* EXTRA SMALL */
+
+  .box-xs {
+    @apply text-sm min-h-6 px-2 py-px gap-1;
+  }
+
+  .inline-box-xs {
+    @apply text-sm min-h-5 gap-1;
+  }
+
+  /* SMALL */
+
+  .box-sm {
+    @apply text-sm min-h-8 px-2 py-[5px] gap-1.5;
+  }
+
+  .inline-box-sm {
+    @apply text-sm min-h-5 gap-x-2 gap-y-1;
+  }
+
+  /* BASE */
+
+  .box-base {
+    @apply text-base min-h-10 gap-x-2 gap-y-1.5 px-3 py-[7px];
+  }
+
+  .inline-box-base {
+    @apply text-base min-h-6 gap-x-2 gap-y-1.5;
+  }
+
+  /* LARGE */
+
+  .box-lg {
+    @apply text-lg min-h-14 gap-x-3 gap-y-2 px-4 py-3;
+  }
+
+  .inline-box-lg {
+    @apply text-lg min-h-8 gap-x-3 gap-y-2;
+  }
+
+  /* EXTRA LARGE */
+
+  .box-xl {
+    @apply text-lg gap-4 px-5 py-4;
+  }
+
+  .inline-box-xl {
+    @apply text-lg gap-4;
+  }
+}
