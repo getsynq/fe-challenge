@@ -24,15 +24,55 @@ We provide this codebase to ensure you don't have to spend time setting the envi
 
 Looking at `./app/routes/wizard.tsx` and `./app/components/wizard/wizard.tsx`, we can see we have:
 
-- Complex state management across multiple contexts (WizardContext and WizardDataContext)
-- A lot of boilerplate for setting up new wizard workflows
-- Coupling between form state management and wizard navigation
-- Repetitive patterns in step definitions and form handling
+- Complex state management across multiple contexts:
+
+  - WizardContext: Handles navigation state, step tracking, and form IDs
+  - WizardDataContext: Manages form data across all steps
+  - Each with their own dispatch contexts for state updates
+
+- Current wizard implementation features:
+
+  - Multi-step navigation with back/forward support
+  - Form state persistence between steps
+  - Conditional step rendering based on previous choices
+  - Step validation using zod schemas
+  - Form handling using conform library
+  - Final submission handling with success/error states
+
+- Key architectural patterns:
+
+  - Each step is a separate component with its own form
+  - Forms use zod for validation and type safety
+  - State is managed through React context and reducers
+  - Navigation is handled through a central wizard provider
+  - Form submissions are processed through Remix actions
+
+- Current pain points:
+
+  - Boilerplate heavy setup requiring multiple contexts
+  - Tight coupling between form state and navigation
+  - Repetitive patterns in step definitions
+  - Complex type definitions spread across files
+  - Manual step management and validation
+  - No built-in error boundary handling
+
+- Example implementation details:
+
+  - Step navigation: Uses WizardProvider with nextStep/previousStep actions
+  - Form state: Managed through WizardDataProvider with update actions
+  - Validation: Each step has its own zod schema
+  - Conditional flows: Implemented through step components (see Step2)
+  - Final submission: Triggered through wizard submit action
+
+- File structure:
+  - wizard.tsx: Core wizard component and context providers
+  - routes/wizard.tsx: Example implementation with forms and steps
+  - Forms are defined inline but could be moved to separate files
+  - Schemas are defined alongside their respective forms
 
 ## Challenge
 
-Your task is to optimize and simplify the wizard component to provide the best possible developer experience while maintaining its robust functionality. The goal is to make it easier for
-developers to create new wizards without sacrificing features or type safety.
+Your task is to optimize and simplify the wizard component to provide the best possible developer experience while maintaining its functionality. The goal is to make it easier for developers to create new wizards that follow the intended structure.
 
 ### Objectives
 
