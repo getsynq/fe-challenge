@@ -652,8 +652,24 @@ const Step3: FC<{ step: string }> = ({ step }) => {
           onSubmit={({ submission }) => onSubmit(submission)}
         >
           <Summary>
-            <SummaryItem label="Email">{data.email}</SummaryItem>
-            <SummaryItem label="Description">{data.description}</SummaryItem>
+            <SummaryItem label="Selected Option">{data.radioGroup}</SummaryItem>
+            {data.radioGroup === "option1" ? (
+              <>
+                {data.description && (
+                  <SummaryItem label="Description">{data.description}</SummaryItem>
+                )}
+                <SummaryItem label="Is Awesome">
+                  {data.checkbox ? "Yes" : "No"}
+                </SummaryItem>
+              </>
+            ) : (
+              <>
+                <SummaryItem label="Email">{data.email}</SummaryItem>
+                <SummaryItem label="Selected Items">
+                  {data.checkboxGroup.join(", ")}
+                </SummaryItem>
+              </>
+            )}
           </Summary>
         </FormStep3>
       </WidgetContent>
