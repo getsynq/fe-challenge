@@ -50,7 +50,13 @@ You should optimise your solution for the following objectives:
 
 You are welcome to change anything in the codebase but we would love to see the following:
 
-- Maintain current functionality (Multi-step navigation, Form state persistence, Conditional paths based on user input, Step validation, Final submission handling)
+- Maintain current functionality
+  - Multi-step navigation — forms should be able to navigate between steps
+  - Form state persistence — forms should be able to persist state between steps
+  - Conditional paths based on user input — forms should be able to conditionally navigate between steps based on user input
+  - Step validation — forms should be able to validate each step and only allow navigation to the next step if the current step is valid
+  - Final submission handling — forms should be able to handle final submission
+  - Error handling — forms should be able to handle errors and provide feedback to the user
 - Keep or improve type safety
 - Support both linear and branching wizard flows
 - Maintain good separation of concerns
@@ -67,8 +73,11 @@ Above all we would love to understand the following:
 5. How do you manage state in your components.
 6. What is your general approach and philosophy to developing FE systems and codebases.
 
+After you've completed the challenge, we'll review your solution and schedule a 90 minute follow-up interview to discuss your solution, and discuss your considerations and possible future improvements.
+
 ## Tips
 
 - Think about what frustrated you when working with wizards
 - Consider composition over inheritance
 - Think about error handling and edge cases
+- **You're welcome to (and even strongly encouraged to) use any of AI chats, AI agents or any other similar tools you have available in your day-to-day work.**
