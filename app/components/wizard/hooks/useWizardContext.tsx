@@ -8,7 +8,8 @@ import {
   PropsWithChildren,
 } from "react";
 
-import type { State, StateAction } from "./types";
+import { State, StateAction, ActionTypes } from "./types";
+
 import type { StepProps } from "../Step";
 
 const DEFAULT_FORM_ID = "wizard";
@@ -17,7 +18,7 @@ const WizardDispatchContext = createContext<Dispatch<StateAction> | null>(null);
 
 const stateReducer = (state: State, action: StateAction): State => {
   switch (action.type) {
-    case "nextStep": {
+    case ActionTypes.NextStep: {
       const nextIndex = Math.min(
         state.currentStepIndex + 1,
         state.steps.length - 1,
@@ -31,7 +32,7 @@ const stateReducer = (state: State, action: StateAction): State => {
       };
     }
 
-    case "previousStep": {
+    case ActionTypes.PreviousStep: {
       const nextIndex = Math.max(state.currentStepIndex - 1, 0);
 
       return {
@@ -42,14 +43,14 @@ const stateReducer = (state: State, action: StateAction): State => {
       };
     }
 
-    case "submit": {
+    case ActionTypes.Submit: {
       return {
         ...state,
         submit: true,
       };
     }
 
-    case "clearSubmit": {
+    case ActionTypes.ClearSubmit: {
       return {
         ...state,
         submit: false,

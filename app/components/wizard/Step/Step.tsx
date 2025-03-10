@@ -34,8 +34,12 @@ export const Step = (props: StepProps) => {
   const shouldRender = isVisibleCondition ? conditionDataValue === value : true;
 
   const onSubmit = useCallback((submission: FormDataProps = {}) => {
-    wizardDataDispatch({ type: ActionTypes.Update, payload: submission });
-    wizardDispatch({ type: submitType });
+    try {
+      wizardDataDispatch({ type: ActionTypes.Update, payload: submission });
+      wizardDispatch({ type: submitType });
+    } catch (error) {
+      console.error(error);
+    }
   }, [submitType]);
 
   return (
