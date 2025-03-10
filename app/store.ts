@@ -49,7 +49,6 @@ const createWorkspaceSlice: StateCreator<
 });
 
 // STORE - SYNQ
-
 export const useSynqStore = create<Store>()(
   devtools((...a) => ({
     ...createWorkspaceSlice(...a),
