@@ -1,8 +1,5 @@
-import { useEffect } from "react";
 import get from "lodash/get";
 import { ActionFunctionArgs, json } from "@remix-run/node";
-import { useSubmit } from "@remix-run/react";
-import classNames from "classnames";
 import {
   jsonWithError,
   jsonWithSuccess,
@@ -12,14 +9,12 @@ import { z } from "zod";
 
 import { fakeDelay } from "~/utils/general";
 
-import { Widget, WidgetContent } from "~/components/Widget";
 import Wizard from "~/components/wizard";
 import { Summary, SummaryItem } from "~/components/formFields/Summary";
-import FormSchemaView, {
+import {
   FormFields,
   FormDataProps,
   FormFieldTypes,
-  FormSubmissionState,
 } from "~/components/domainSpecific/FormSchemaView";
 import type {StepProps} from "~/components/wizard/Step";
 
