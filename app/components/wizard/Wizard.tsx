@@ -7,7 +7,7 @@ import {
   WizardProps,
 } from ".";
 
-
+// @TODO: Refactor to use other than context/provider hell)) redux/mobX
 export const Wizard = (props: WizardProps) => {
   const { steps, initialValues } = props;
 
@@ -19,16 +19,8 @@ export const Wizard = (props: WizardProps) => {
             <WizardHeader {...props} />
 
             <div className="overflow-hidden flex flex-col w-full h-fit max-h-full">
-              {steps.flatMap(({ step, title, formFields, formSchema, getChild, isVisibleCondition }, index) => (
-                <Step
-                  key={`step-${index}`}
-                  isVisibleCondition={isVisibleCondition}
-                  getChild={getChild}
-                  title={title}
-                  formFields={formFields}
-                  formSchema={formSchema}
-                  step={step}
-                />
+              {steps.flatMap((props, index) => (
+                <Step key={`step-${index}`} {...props}/>
               ))}
             </div>
           </div>

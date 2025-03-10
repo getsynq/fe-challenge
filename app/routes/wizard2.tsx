@@ -152,7 +152,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 // VIEW
-export default function WizardExample() {
+export default function WizardExample2() {
   const wizardSteps = [
     {
       order: 1,

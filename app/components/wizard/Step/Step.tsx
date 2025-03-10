@@ -8,12 +8,20 @@ import {
   useWizardDispatchContext,
   useWizardDataContext,
   useWizardDataDispatchContext,
+  ActionTypes,
 } from "../";
 import { StepProps } from '.';
 import get from "lodash/get";
 
 export const Step = (props: StepProps) => {
-  const { step, formSchema, formFields, getChild, isVisibleCondition } = props;
+  const {
+    step,
+    formSchema,
+    formFields,
+    isVisibleCondition,
+    submitType = ActionTypes.NextStep,
+    getChild,
+  } = props;
 
   const { getFormIdForStep, currentStep } = useWizardContext();
   const dataContext = useWizardDataContext();
@@ -26,9 +34,9 @@ export const Step = (props: StepProps) => {
   const shouldRender = isVisibleCondition ? conditionDataValue === value : true;
 
   const onSubmit = useCallback((submission: FormDataProps = {}) => {
-    wizardDataDispatch({ type: "update", payload: submission });
-    wizardDispatch({ type: "nextStep" });
-  }, []);
+    wizardDataDispatch({ type: ActionTypes.Update, payload: submission });
+    wizardDispatch({ type: submitType });
+  }, [submitType]);
 
   return (
     shouldRender ? (
