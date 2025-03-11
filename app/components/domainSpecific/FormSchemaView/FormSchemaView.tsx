@@ -119,11 +119,7 @@ export const FormSchemaView = (props: PropsWithChildren<FormSchemaViewProps>) =>
                    }
                 </FormGroup>
               </FormControl>
-              {info ? (
-                <FormMessage variant="info">
-                  Choose this if you want to be awesome!
-                </FormMessage>
-              ) : null}
+              {info ? <FormMessage variant="info">{info}</FormMessage> : null}
 
               {valuesByName.errors ? <FormMessage variant="error">{valuesByName.errors}</FormMessage> : null}
             </FormField>
@@ -187,11 +183,7 @@ export const FormSchemaView = (props: PropsWithChildren<FormSchemaViewProps>) =>
                   defaultChecked={valuesByName.initialValue === IS_CHECKED_VALUE}
                 />
               </FormControlLabel>
-              {info ? (
-                <FormMessage variant="info">
-                  Choose this if you want to be awesome!
-                </FormMessage>
-              ) : null}
+              {info ? <FormMessage variant="info">{info}</FormMessage> : null}
 
               {valuesByName.errors ? <FormMessage variant="error">{valuesByName.errors}</FormMessage> : null}
             </FormField>
