@@ -19,7 +19,7 @@ export const Wizard = (props: WizardProps) => {
             <WizardHeader {...props} />
 
             <div className="overflow-hidden flex flex-col w-full h-fit max-h-full">
-              {steps.flatMap((props, index) => (
+              {steps.map((props, index) => (
                 <Step key={`step-${index}`} {...props}/>
               ))}
             </div>
